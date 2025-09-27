@@ -98,23 +98,23 @@
 </head>
 <body class="bg-white">
     <!-- Navigation -->
-    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <div class="flex flex-row">
-                        <img src="./images/logo.webp" alt="Green Up Academy Logo" class="h-10">
-                        <p>Green Up Academy</p>
+                    <div class="flex items-center space-x-3">
+                        <img src="./images/logo.webp" alt="Green Up Academy Logo" class="h-10 w-auto">
+                        <p class="text-xl font-semibold text-white-900">Green Up Academy</p>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
+                    <div class="ml-10 flex items-center space-x-8">
                         <a href="#home" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">Accueil</a>
                         <a href="#programs" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">Programmes</a>
                         <a href="#about" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">À Propos</a>
                         <a href="#faq" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">FAQ</a>
                         <a href="#contact" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">Contact</a>
-                        <a href="#admission-type" class="bg-primary text-white px-6 py-2 rounded-md hover:bg-dark transition-all">Postuler Maintenant</a>
+                        <a href="#admission-type" class="bg-primary text-white px-6 py-2 rounded-md font-semibold hover:bg-dark transition-all">Postuler Maintenant</a>
                     </div>
                 </div>
                 <div class="md:hidden">
@@ -153,10 +153,10 @@
         <div id="carousel" class="carousel-container flex h-full">
             <!-- Slide 1 -->
             <div class="min-w-full relative carousel-slide">
-                <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
+                <img src="./images/step4.png" 
                      alt="Green Up Academy Intro" class="w-full h-full object-cover">
                 <!-- Blur Overlay -->
-                <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                <div class="absolute inset-0 bg-black/40 "></div>
                 <div class="absolute inset-0 flex items-center justify-start">
                     <div class="max-w-3xl mx-auto px-8 text-white relative">
                         <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Rejoignez Green Up Academy</h3>
@@ -175,10 +175,10 @@
             
             <!-- Slide 2 -->
             <div class="min-w-full relative carousel-slide">
-                <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
+                <img src="./images/image5.png" 
                      alt="Admission Process" class="w-full h-full object-cover">
                 <!-- Blur Overlay -->
-                <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                <div class="absolute inset-0 bg-black/40 "></div>
                 <div class="absolute inset-0 flex items-center justify-start">
                     <div class="max-w-3xl mx-auto px-8 text-white relative">
                         <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Forgez des Connexions Mondiales</h3>
@@ -200,7 +200,7 @@
                 <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
                      alt="Application Form Submission" class="w-full h-full object-cover">
                 <!-- Blur Overlay -->
-                <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                <div class="absolute inset-0 bg-black/40 "></div>
                 <div class="absolute inset-0 flex items-center justify-start">
                     <div class="max-w-3xl mx-auto px-8 text-white relative">
                         <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Excellence Académique</h3>
@@ -222,7 +222,7 @@
                 <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
                      alt="Evaluation Process" class="w-full h-full object-cover">
                 <!-- Blur Overlay -->
-                <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                <div class="absolute inset-0 bg-black/40 "></div>
                 <div class="absolute inset-0 flex items-center justify-start">
                     <div class="max-w-3xl mx-auto px-8 text-white relative">
                         <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Façonnez Votre Avenir</h3>
@@ -244,7 +244,7 @@
                 <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
                      alt="Enrollment Confirmation" class="w-full h-full object-cover">
                 <!-- Blur Overlay -->
-                <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                <div class="absolute inset-0 bg-black/40 "></div>
                 <div class="absolute inset-0 flex items-center justify-start">
                     <div class="max-w-3xl mx-auto px-8 text-white relative">
                         <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Finalisez Votre Inscription</h3>
@@ -948,6 +948,27 @@
         backToTopButton.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > 50) {
+            navbar.classList.remove('bg-white', 'shadow-md', 'text-gray-700');
+            navbar.classList.add('bg-gray-800', 'shadow-lg', 'text-white');
+            navbar.querySelectorAll('a.text-gray-700').forEach(link => {
+                link.classList.remove('text-gray-700');
+                link.classList.add('text-white', 'hover:text-primary');
+            });
+        } else {
+            navbar.classList.remove('bg-gray-800', 'shadow-lg', 'text-white');
+            navbar.classList.add('bg-white', 'shadow-md');
+            navbar.querySelectorAll('a.text-white').forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-gray-700', 'hover:text-primary');
+            });
+        }
+    });
 
         // Accordion functionality
         document.querySelectorAll('.accordion-button').forEach(button => {
