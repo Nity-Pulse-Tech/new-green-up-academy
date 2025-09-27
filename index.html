@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Up Academy - International Admissions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D8B36',
+                        light: '#F0F9F4',
+                        dark: '#064E20'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .carousel-container {
+            scroll-behavior: smooth;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .map-container {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .svg-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+        }
+
+        .program-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .accordion-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-button.active i {
+            transform: rotate(180deg);
+        }
+
+        #mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 75%;
+            max-width: 300px;
+            background-color: white;
+            z-index: 50;
+        }
+
+        #mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex flex-row">
+                        <img src="./images/logo.webp" alt="Green Up Academy Logo" class="h-10">
+                        <p>Green Up Academy</p>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">Home</a>
+                        <a href="#programs" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">Programs</a>
+                        <a href="#about" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">About</a>
+                        <a href="#faq" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">FAQ</a>
+                        <a href="#contact" class="text-gray-700 hover:text-primary px-3 py-2 transition-colors">Contact</a>
+                        <a href="#admission-type" class="bg-primary text-white px-6 py-2 rounded-md hover:bg-dark transition-all">Apply Now</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-gray-700 hover:text-primary block px-3 py-2">Home</a>
+                <a href="#programs" class="text-gray-700 hover:text-primary block px-3 py-2">Programs</a>
+                <a href="#about" class="text-gray-700 hover:text-primary block px-3 py-2">About</a>
+                <a href="#faq" class="text-gray-700 hover:text-primary block px-3 py-2">FAQ</a>
+                <a href="#contact" class="text-gray-700 hover:text-primary block px-3 py-2">Contact</a>
+                <a href="#admission-type" class="bg-primary text-white block px-3 py-2 rounded-md text-center">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel Section -->
+    <section id="home" class="relative h-screen flex items-center bg-gray-50">
+        <div class="relative w-full h-full overflow-hidden">
+            <div id="carousel" class="carousel-container flex h-full">
+                <!-- Slide 1 -->
+                <div class="min-w-full relative">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
+                         alt="Integration Step 1" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-start">
+                        <div class="max-w-3xl mx-auto px-8 text-white">
+                            <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Join Our Vibrant Community</h3>
+                            <p class="text-lg md:text-xl mb-6 drop-shadow-md">Discover personalized orientation programs tailored for international students.</p>
+                            <div class="flex space-x-4">
+                                <a href="#admission-type" class="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-all">
+                                    Start Integration
+                                </a>
+                                <a href="#programs" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition-all">
+                                    Explore Programs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="min-w-full relative">
+                    <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
+                         alt="Integration Step 2" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-start">
+                        <div class="max-w-3xl mx-auto px-8 text-white">
+                            <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Build Global Connections</h3>
+                            <p class="text-lg md:text-xl mb-6 drop-shadow-md">Engage in cultural exchange and form lifelong friendships.</p>
+                            <div class="flex space-x-4">
+                                <a href="#admission-type" class="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-all">
+                                    Learn More
+                                </a>
+                                <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition-all">
+                                    Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="min-w-full relative">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
+                         alt="Integration Step 3" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-start">
+                        <div class="max-w-3xl mx-auto px-8 text-white">
+                            <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Immerse in Academic Excellence</h3>
+                            <p class="text-lg md:text-xl mb-6 drop-shadow-md">Join academic support sessions and vibrant extracurricular clubs.</p>
+                            <div class="flex space-x-4">
+                                <a href="#admission-type" class="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-all">
+                                    Explore
+                                </a>
+                                <a href="#programs" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition-all">
+                                    View Programs
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="min-w-full relative">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" 
+                         alt="Integration Step 4" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 flex items-center justify-start">
+                        <div class="max-w-3xl mx-auto px-8 text-white">
+                            <h3 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">Shape Your Future</h3>
+                            <p class="text-lg md:text-xl mb-6 drop-shadow-md">Achieve success with mentorship and career guidance.</p>
+                            <div class="flex space-x-4">
+                                <a href="#admission-type" class="bg-white text-primary px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-all">
+                                    Get Started
+                                </a>
+                                <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:text-primary transition-all">
+                                    Get in Touch
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Controls -->
+            <button onclick="previousSlide()" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-primary p-3 rounded-full transition-all shadow-md">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button onclick="nextSlide()" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-primary p-3 rounded-full transition-all shadow-md">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Admission Type Section -->
+    <section id="admission-type" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Choose Your Admission Path</h2>
+                <p class="text-lg text-gray-700">Select the admission process that applies to your situation. We provide tailored support for both EU and non-EU students.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6">
+                        <i class="fas fa-flag-eu text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">EU Students Admission</h3>
+                    <p class="text-gray-700 mb-6">Simplified process for students from European Union member countries with reduced documentation requirements.</p>
+                    <ul class="text-gray-700 space-y-3 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> Streamlined application process</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> No student visa required</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> EU tuition rates</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> Fast-track admission decision</li>
+                    </ul>
+                    <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-dark transition duration-300 w-full text-center">Apply as EU Student</a>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mb-6">
+                        <i class="fas fa-globe-americas text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Non-EU Students Admission</h3>
+                    <p class="text-gray-700 mb-6">Comprehensive support for international students from outside the European Union.</p>
+                    <ul class="text-gray-700 space-y-3 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> Visa application assistance</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> International student orientation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> Housing support services</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-3"></i> Cultural integration programs</li>
+                    </ul>
+                    <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-lg font-semibold hover:bg-dark transition duration-300 w-full text-center">Apply as International Student</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Message Section -->
+    <section class="py-16 bg-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="bg-white rounded-xl p-8 shadow-lg fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-gray-900">Ready to Transform Your Future?</h2>
+                <p class="text-lg mb-8 text-gray-600 leading-relaxed">
+                    At Green Up Academy, we craft success stories with comprehensive admission services for both EU and non-EU students.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mt-10">
+                    <div class="bg-gray-100 rounded-lg p-6">
+                        <div class="text-primary text-4xl mb-4">
+                            <svg class="svg-icon w-12 h-12 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Expert Guidance</h3>
+                        <p class="text-gray-600">Personalized consultation from admission specialists</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-6">
+                        <div class="text-primary text-4xl mb-4">
+                            <svg class="svg-icon w-12 h-12 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">Proven Results</h3>
+                        <p class="text-gray-600">95% success rate in university placements</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-6">
+                        <div class="text-primary text-4xl mb-4">
+                            <svg class="svg-icon w-12 h-12 mx-auto" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-900">End-to-End Support</h3>
+                        <p class="text-gray-600">From application to visa assistance</p>
+                    </div>
+                </div>
+                <a href="#admission-type" class="mt-10 inline-block bg-primary text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-dark transition-all shadow-md">
+                    Start Your Journey Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Process Section -->
+    <section id="admission-info" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Admission Process</h2>
+                <p class="text-lg text-gray-600">Follow these steps to join Green Up Academy</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <!-- Step 1 -->
+                <div class="bg-blue-50 rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="font-bold text-lg mb-4">Fill the Admission Form</h3>
+                    <p class="text-gray-600 mb-4">Complete and submit the admission form with required documents.</p>
+                    <a href="#contact" class="inline-block bg-primary text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-dark transition-all">Start Application</a>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="bg-blue-50 rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="font-bold text-lg mb-4">Application Review</h3>
+                    <p class="text-gray-600 mb-4">The school reviews your application and may schedule an interview.</p>
+                    <p class="text-gray-600 font-semibold">Fees: €1,200 (Registration) + €1,000 (Deposit, deductible from tuition)</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="bg-blue-50 rounded-lg p-6 text-center">
+                    <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white text-xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="font-bold text-lg mb-4">Confirmation of Enrollment</h3>
+                    <p class="text-gray-600 mb-4">Receive enrollment confirmation, invoice, and visa documents.</p>
+                    <a href="#faq" class="inline-block bg-primary text-white px-6 py-2 rounded-md text-sm font-medium hover:bg-dark transition-all">Learn More</a>
+                </div>
+            </div>
+            
+            <!-- Cancellation Policy -->
+            <div class="bg-light rounded-lg p-8 text-center">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Cancellation Policy</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <p class="font-semibold text-gray-900">More than 4 weeks before start</p>
+                        <p class="text-gray-600">100% of deposit refunded (with justification)</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900">Less than 4 weeks before start</p>
+                        <p class="text-gray-600">No refund of deposit or registration fees</p>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900">After start</p>
+                        <p class="text-gray-600">No refund, except for serious reasons (with justification)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Programs</h2>
+                <p class="text-lg text-gray-600">Explore our diverse educational offerings in Paris and Reims</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Program 1 -->
+                <div class="program-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <svg class="w-full h-48 bg-gray-100 p-4" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#F0F9F4"/>
+                        <path d="M50 120C50 105 70 100 100 100C130 100 150 105 150 120" stroke="#0D8B36" stroke-width="8"/>
+                        <circle cx="100" cy="50" r="30" fill="#0D8B36"/>
+                        <path d="M80 50H120M100 30V70" stroke="white" stroke-width="4"/>
+                    </svg>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Business Administration</h3>
+                        <p class="text-gray-600 mb-2">Develop leadership skills for global business success.</p>
+                        <p class="text-sm text-gray-500"><strong>Location:</strong> Paris</p>
+                        <p class="text-sm text-gray-500"><strong>Type:</strong> Bachelor</p>
+                        <a href="#contact" class="mt-4 inline-block text-primary font-semibold hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Program 2 -->
+                <div class="program-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <svg class="w-full h-48 bg-gray-100 p-4" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#F0F9F4"/>
+                        <path d="M50 50H150V100H50V50Z" fill="#0D8B36"/>
+                        <path d="M75 75H125" stroke="white" stroke-width="8"/>
+                        <path d="M100 50V100" stroke="white" stroke-width="8"/>
+                    </svg>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Computer Science</h3>
+                        <p class="text-gray-600 mb-2">Master cutting-edge technology and innovation.</p>
+                        <p class="text-sm text-gray-500"><strong>Location:</strong> Reims</p>
+                        <p class="text-sm text-gray-500"><strong>Type:</strong> Master</p>
+                        <a href="#contact" class="mt-4 inline-block text-primary font-semibold hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Program 3 -->
+                <div class="program-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <svg class="w-full h-48 bg-gray-100 p-4" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#F0F9F4"/>
+                        <path d="M100 30L130 90H70L100 30Z" fill="#0D8B36"/>
+                        <circle cx="100" cy="110" r="20" fill="#064E20"/>
+                    </svg>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Environmental Studies</h3>
+                        <p class="text-gray-600 mb-2">Focus on sustainability and green technologies.</p>
+                        <p class="text-sm text-gray-500"><strong>Location:</strong> Paris</p>
+                        <p class="text-sm text-gray-500"><strong>Type:</strong> Bachelor</p>
+                        <a href="#contact" class="mt-4 inline-block text-primary font-semibold hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Program 4 -->
+                <div class="program-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <svg class="w-full h-48 bg-gray-100 p-4" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#F0F9F4"/>
+                        <path d="M50 100H150L125 50H75L50 100Z" fill="#0D8B36"/>
+                        <path d="M100 50V100" stroke="white" stroke-width="8"/>
+                    </svg>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">International Relations</h3>
+                        <p class="text-gray-600 mb-2">Understand global politics and diplomacy.</p>
+                        <p class="text-sm text-gray-500"><strong>Location:</strong> Reims</p>
+                        <p class="text-sm text-gray-500"><strong>Type:</strong> Master</p>
+                        <a href="#contact" class="mt-4 inline-block text-primary font-semibold hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Program 5 -->
+                <div class="program-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <svg class="w-full h-48 bg-gray-100 p-4" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#F0F9F4"/>
+                        <path d="M50 100C50 70 70 50 100 50C130 50 150 70 150 100" fill="#0D8B36"/>
+                        <circle cx="100" cy="100" r="10" fill="white"/>
+                    </svg>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Art and Design</h3>
+                        <p class="text-gray-600 mb-2">Express creativity through various media.</p>
+                        <p class="text-sm text-gray-500"><strong>Location:</strong> Paris</p>
+                        <p class="text-sm text-gray-500"><strong>Type:</strong> Bachelor</p>
+                        <a href="#contact" class="mt-4 inline-block text-primary font-semibold hover:underline">Learn More</a>
+                    </div>
+                </div>
+                <!-- Program 6 -->
+                <div class="program-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <svg class="w-full h-48 bg-gray-100 p-4" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#F0F9F4"/>
+                        <path d="M60 110L100 30L140 110H60Z" fill="#0D8B36"/>
+                        <path d="M100 30V110" stroke="white" stroke-width="8"/>
+                    </svg>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Health Sciences</h3>
+                        <p class="text-gray-600 mb-2">Prepare for careers in healthcare and wellness.</p>
+                        <p class="text-sm text-gray-500"><strong>Location:</strong> Reims</p>
+                        <p class="text-sm text-gray-500"><strong>Type:</strong> Master</p>
+                        <a href="#contact" class="mt-4 inline-block text-primary font-semibold hover:underline">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">Find answers to common questions about admissions and studying at Green Up Academy</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1: Visa Longue Durée -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-button w-full flex justify-between items-center px-6 py-4 bg-blue-50 rounded-t-lg focus:outline-none">
+                        <h4 class="font-semibold text-lg text-primary">How do I apply for a long-stay visa or residence permit?</h4>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">Apply for a visa through the French consulate in your country. Check the consulate's website for specific procedures and processing times, which may take several months. Required documents vary by country and visa type. <span class="font-semibold text-red-600">Note:</span> Your passport must be valid for the entire duration of your stay in France, or your application will be rejected.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2: Visa Étudiant -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-button w-full flex justify-between items-center px-6 py-4 bg-blue-50 rounded-t-lg focus:outline-none">
+                        <h4 class="font-semibold text-lg text-primary">How do I obtain a student visa?</h4>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">Visit Campus France for student visa procedures, which vary by country:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li><a href="#" class="text-primary hover:underline font-semibold">Procedure for 33 countries with online registration (CEF)</a></li>
+                            <li><a href="#" class="text-primary hover:underline font-semibold">Procedure for European countries</a></li>
+                            <li><a href="#" class="text-primary hover:underline font-semibold">Procedure for other countries</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3: Admission Procedure -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-button w-full flex justify-between items-center px-6 py-4 bg-blue-50 rounded-t-lg focus:outline-none">
+                        <h4 class="font-semibold text-lg text-primary">What is the admission procedure for international students?</h4>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">When submitting your application, there are two possibilities:</p>
+                        <p class="text-gray-700 mt-2"><span class="font-semibold">If Green Up Academy is listed in your country:</span> Select our institution, follow the steps, and provide the visa pack issued by Green Up Academy upon enrollment.</p>
+                        <p class="text-gray-700 mt-2"><span class="font-semibold">If Green Up Academy is not listed:</span> Enter "Green Up Academy" in the text field and attach the visa pack provided by the school.</p>
+                        <p class="text-gray-700 mt-2">Campus France will verify your enrollment with our services.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4: Admission Dates -->
+                <div class="border border-gray-200 rounded-lg">
+                    <button class="accordion-button w-full flex justify-between items-center px-6 py-4 bg-blue-50 rounded-t-lg focus:outline-none">
+                        <h4 class="font-semibold text-lg text-primary">What are the key admission dates?</h4>
+                        <i class="fas fa-chevron-down text-primary"></i>
+                    </button>
+                    <div class="hidden px-6 py-4 bg-white">
+                        <p class="text-gray-700">Admissions are open for October 2025 and February 2026 sessions. The application deadline is one month before the start date. Key dates:</p>
+                        <ul class="list-disc pl-5 mt-2 text-gray-700">
+                            <li>15 October 2025</li>
+                            <li>10 February 2026</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Green Up Academy?</h2>
+                <p class="text-lg text-gray-600">Your success is our commitment</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center group bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                        <svg class="svg-icon w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Excellence</h3>
+                    <p class="text-gray-600">Delivering exceptional results</p>
+                </div>
+                
+                <div class="text-center group bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                        <svg class="svg-icon w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Personalized</h3>
+                    <p class="text-gray-600">Tailored to your goals</p>
+                </div>
+                
+                <div class="text-center group bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                        <svg class="svg-icon w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.5 2.54l2.62 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Innovative</h3>
+                    <p class="text-gray-600">Modern tools and strategies</p>
+                </div>
+                
+                <div class="text-center group bg-light p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+                        <svg class="svg-icon w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 12l-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68L23 12zm-10 5h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Reliable</h3>
+                    <p class="text-gray-600">Proven track record</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+                <p class="text-lg text-gray-600">Contact us for more information</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Contact Information -->
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">School Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <svg class="svg-icon w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Address</h4>
+                                <p class="text-gray-600">6 rue des deux communes<br>91480 Quincy sous Senart, Paris<br>France</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <svg class="svg-icon w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Phone</h4>
+                                <p class="text-gray-600">+33 1 123 456 789</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <svg class="svg-icon w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Email</h4>
+                                <p class="text-gray-600">contact@greenupacademy.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 w-10 h-10 rounded-full flex items-center justify-center mr-4">
+                                <svg class="svg-icon w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900">Office Hours</h4>
+                                <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-4">School Map</h4>
+                        <div class="map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2628.029718518992!2d2.541299815673!3d48.674300579269!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5f7a7b7b7b7b7%3A0x1!2s6%20Rue%20des%20Deux%20Communes%2C%2091480%20Quincy-sous-S%C3%A9nart%2C%20France!5e0!3m2!1sen!2sus!4v1727440000000!5m2!1sen!2sus" 
+                                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                    
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="John Doe">
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="john.doe@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="+33 1 123 456 789">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">City</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Your city">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Country</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Your country">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Program of Interest</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all">
+                                <option value="">Select a program</option>
+                                <option value="Bachelor GUA en Performance Énergétique des Bâtiments et Procédés Industriels">Bachelor GUA en Performance Énergétique</option>
+                                <option value="Bachelor en Intelligence Artificielle">Bachelor en Intelligence Artificielle</option>
+                                <option value="Bachelor GUA en Conception Designer UI">Bachelor GUA en Conception Designer UI</option>
+                                <option value="Bachelor GUA en Conception et Développement d'Application">Bachelor GUA en Conception et Développement d'Application</option>
+                                <option value="Mastère Intelligence Artificielle">Mastère Intelligence Artificielle</option>
+                                <option value="MASTÈRE en PERFORMANCE ÉNERGÉTIQUE, INTELLIGENCE ARTIFICIELLE ET DÉVELOPPEMENT DURABLE">Mastère en Performance Énergétique, IA et Développement Durable</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-white py-4 rounded-md font-semibold hover:bg-dark transition-all shadow-md">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Green Up Academy</h3>
+                    <p class="text-gray-300 mb-6">Empowering students with world-class education.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-dark transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-dark transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-dark transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-primary text-white w-9 h-9 rounded-full flex items-center justify-center hover:bg-dark transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#admission-type" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="#programs" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#programs" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p class="flex items-start">
+                            <svg class="svg-icon w-5 h-5 text-white mr-2 mt-1" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            6 rue des deux communes, 91480 Quincy sous Senart, Paris, France
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="svg-icon w-5 h-5 text-white mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            +33 1 123 456 789
+                        </p>
+                        <p class="flex items-center">
+                            <svg class="svg-icon w-5 h-5 text-white mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            contact@greenupacademy.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Green Up Academy. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const carousel = document.getElementById('carousel');
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // Auto-advance every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Initialize
+        updateCarousel();
+
+        // Mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu').classList.remove('open');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('fade-in');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Accordion functionality
+        document.querySelectorAll('.accordion-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                content.classList.toggle('hidden');
+                button.classList.toggle('active');
+                icon.classList.toggle('fa-chevron-down');
+                icon.classList.toggle('fa-chevron-up');
+            });
+        });
+    </script>
+</body>
+</html>
